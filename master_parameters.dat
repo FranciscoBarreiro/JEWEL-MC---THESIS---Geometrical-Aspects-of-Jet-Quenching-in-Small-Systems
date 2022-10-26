@@ -1,0 +1,108 @@
+# Master parameter file
+# (includes all changeable parameters of Jewel)
+# defaults are given in the form (default)
+#
+# OUTPUT
+#
+# logfile (./out.log)
+LOGFILE logs/Pb-Pb_NEW_JEWEL_90_100_NJOB105.log
+# eventfile (./out.hepmc)
+HEPMCFILE eventfiles/Pb-Pb_NEW_JEWEL_90_100_NJOB105.hepmc
+# compact event output containing only stable final state particles (T)
+SHORTHEPMC T
+# delete information about intermediate states from event record to allow
+# generation of higher multiplicity events (T)
+COMPRESS T
+#
+# basic setup
+#
+# number of events to be generated (10000)
+NEVENT 100
+# arbitrary job number used to initialise the random number generator (0)
+NJOB 105
+#
+# PDFs (needs LHAPDF5)
+#
+# name of file containing integrated partonic PDFs (./pdfs.dat)
+PDFFILE pdfs.dat
+# LHAPDF5 proton PDF (10042)
+PDFSET 10042
+# EPS09 nPDF set (0: none, 1: central value, 2-31: error sets) (1)
+NSET 1
+# mass number of nucleus (yes, it has to be a double) (208.)
+MASS 208.
+# c.m.s. energy of the colliding system [GeV] (2760.)
+SQRTS 5020.
+# process that is to be simulated by matrix element (PPJJ)
+# currently available:
+# ‘EEJJ’: di-jet production in e++e− collisions
+# ‘PPJJ’: di-jet production in hadronic collisions
+# ‘PPYJ’: all γ+jet processes
+# ‘PPYQ’: only γ+quark production
+# ‘PPYG’: only γ+gluon production
+# ‘PPZJ’: all Z+jet processes
+# ‘PPZQ’: only Z+quark production
+# ‘PPZG’: only Z+gluon production
+# ‘PPWJ’: all W±+jet processes
+# ‘PPWQ’: only W±+quark production
+# ‘PPWG’: only W±+gluon production
+PROCESS PPJJ
+#
+# decay channel for the heavy W and Z bosons (MUON)
+# currently available:
+# ‘ELEC’ and ‘MUON’ for the decay to electrons/positrons and muons, respectively
+CHANNEL MUON
+#
+# isospin channel for the hard matrix element (XX)
+# PP for proton-proton channel
+# PN for proton-neutron channel
+# NP for neutron-proton channel
+# NN neutron-neutron channel
+# For all other values all four channels will be simulated with the correct relative weights.
+ISOCHANNEL XX
+# number of protons in the nucleus (needed for isospin channel weights) (82)
+NPROTON 82
+#
+#
+# generation generics
+#
+# switch for weighted/unweighted events (T)
+WEIGHTED T
+# for weighted events: power of 1/ p⊥ with which to oversample (5.)
+WEXPO 5.
+#
+# generation phase space specification:
+#
+# minimum p⊥ in matrix element [GeV] (5.)
+PTMIN 10.
+# maximum p⊥ in matrix element [GeV] (inactive when PTMAX < 0) (350.)
+PTMAX -1.
+# rapidity range [-ETAMAX, ETAMAX] in which a medium is simulated (3.1)
+ETAMAX 4.
+# config file for medium model (./medium-params.dat)
+MEDIUMPARAMS ./master_medium.params.dat
+# file containing integrated splitting functions (./splitint.dat)
+SPLITINTFILE ./splitint.dat
+# file containing integrated scattering cross sections (./xsecs.dat)
+#
+# shower specifications
+#
+# number of flavours used to evaluate alpha_s (3)
+NF 3
+# Lambda_{QCD} [GeV] (0.4)
+LAMBDAQCD 0.4
+# infra-red parton shower cut-off [GeV] (1.5)
+Q0 1.5
+# switch for angular ordering (T)
+ANGORD T
+#
+# hadronization and recoils
+#
+# switch for keeping recoiling scattering centres (F)
+KEEPRECOILS F
+# hadronisation switch (T)
+HADRO T
+# type of colour arrangement (0)
+# 0: vacuum like
+# 1: model based on minimising invariant mass of strings
+HADROTYPE 0

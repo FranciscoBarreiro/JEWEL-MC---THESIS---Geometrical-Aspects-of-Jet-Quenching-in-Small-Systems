@@ -1,0 +1,243 @@
+21.06.2022, 00:13:05
+
+                    _________________________________________                  
+                   |                                         |                 
+                   |  JJJJJ  EEEEE  W       W  EEEEE  L      |                  
+                   |      J  E      W       W  E      L      |                  
+  _________________|      J  EEE     W  W  W   EEE    L      |_________________ 
+ |                 |  J   J  E       W W W W   E      L      |                 |
+ |                 |   JJJ   EEEEE    W   W    EEEEE  LLLLL  |                 |
+ |                 |_________________________________________|                 |
+ |                                                                             |
+ |                            this is JEWEL 2.3.0                              |
+ |                                                                             |
+ | Copyright Korinna C. Zapp (2021)  [Korinna.Zapp@thep.lu.se]                 |
+ |                                                                             |
+ | The JEWEL homepage is jewel.hepforge.org                                    |
+ |                                                                             |
+ | The medium model was partly implemented by Jochen Klein                     |
+ | [Jochen.Klein@cern.ch]. Raghav Kunnawalkam Elayavalli helped with the       |
+ | implementation of the V+jet processes [raghav.k.e@cern.ch].                 |
+ |                                                                             |
+ | Please cite JHEP 1303 (2013) 080 [arXiv:1212.1599] for physics and          |
+ | EPJC 74 (2014) no.2, 2762 [arXiv:1311.0048]  for the code.                  |
+ | The reference for V+jet processes is EPJC 76 (2016) no.12 695               |
+ | [arXiv:1608.03099] and for recoil effects it is JHEP 07 (2017) 141          |
+ | [arXiv:1707.01539].                                                         |
+ |                                                                             |
+ | JEWEL relies heavily on PYTHIA 6 for the event generation. The modified     |
+ | version of PYTHIA 6.4.25 that is shipped with JEWEL is, however, not an     |
+ | official PYTHIA release and must not be used for anything else. Please      |
+ | refer to results as "JEWEL+PYTHIA".                                         |
+ |                                                                             |
+ | JEWEL also uses code provided byS. Zhang and J. M. Jing                     |
+ | (Computation of Special Functions, John Wiley & Sons, New York, 1996 and    |
+ | http://jin.ece.illinois.edu) for computing the exponential integral Ei(x).  |
+ |                                                                             |
+ |_____________________________________________________________________________|
+
+
+
+ parameters of the run:
+ NEVENT       =         5000
+ NJOB         =            1
+ LOGFILE      = logs/Pb-Pb_NEW_JEWEL_0_10_NJOB1.log                                                                                     
+ HEPMCFILE    = eventfiles/Pb-Pb_NEW_JEWEL_0_10_NJOB1.hepmc                                                                             
+ SPLITINTFILE = ./splitint.dat                                                                  
+ PDFFILE      = pdfs.dat                                                                        
+ XSECFILE     = xsecs.dat                                                                       
+ MEDIUMPARAMS = ./master_medium.params.dat                                                      
+ NF           =            3
+ LAMBDAQCD    =   0.40000000000000002     
+ Q0           =    1.5000000000000000     
+ PTMIN        =    10.000000000000000     
+ PTMAX        =   -1.0000000000000000     
+ ETAMAX       =    4.0000000000000000     
+ PROCESS      = PPJJ
+ ISOCHANNEL   = XX
+ CHANNEL      = MUON
+ SQRTS        =    5020.0000000000000     
+ PDFSET       =        10042
+ NSET         =            1
+ MASS         =    208.00000000000000     
+ NPROTON      =           82
+ WEIGHTED     =  T
+ WEXPO        =    5.0000000000000000     
+ ANGORD       =  T
+ HADRO        =  T
+ HADROTYPE    =            0
+ SHORTHEPMC   =  T
+ COMPRESS     =  T
+ KEEPRECOILS  =  F
+ SCATRECOIL   =  F
+ RECSOFTCUT   =    0.0000000000000000     
+ RECHARDCUT   =    5.0000000000000000     
+ WRITESCATCEN =  F
+ WRITEDUMMIES =  F
+ KINMODE      =            1
+ RECMODE      =            0
+
+
+ Reading medium parameters from ./master_medium.params.dat                                                      
+ ...done
+ using parameters:
+ TAUI       =  0.55100000000000005     
+ TI         =  0.39200000000000002     
+ TC         =  0.17000000000000001     
+ WOODSSAXON = T
+ CENTRMIN   =   0.0000000000000000     
+ CENTRMAX   =   10.000000000000000     
+ NF         =           3
+ A          =         208
+ N0         =  0.17000000000000001     
+ D          =  0.54000000000000004     
+ SIGMANN    =   7.0000000000000000     
+ MDFACTOR   =  0.45000000000000001     
+ MDSCALEFAC =  0.90000000000000002     
+ SPECIES    =Pb                                                                              
+
+
+
+
+ read splitting integrals from ./splitint.dat                                                                  
+
+ read pdfs from pdfs.dat                                                                        
+
+ read cross sections from xsecs.dat                                                                       
+
+
+ ####################################################
+
+ generating          808  events in p+ + p+ channel
+
+ ####################################################
+
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ ++  This is a modified version of PYTHIA that may only be used with JEWEL.  ++
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1                                                                              
+ ******************************************************************************
+ ******************************************************************************
+ **                                                                          **
+ **                                                                          **
+ **              *......*                  Welcome to the Lund Monte Carlo!  **
+ **         *:::!!:::::::::::*                                               **
+ **      *::::::!!::::::::::::::*          PPP  Y   Y TTTTT H   H III   A    **
+ **    *::::::::!!::::::::::::::::*        P  P  Y Y    T   H   H  I   A A   **
+ **   *:::::::::!!:::::::::::::::::*       PPP    Y     T   HHHHH  I  AAAAA  **
+ **   *:::::::::!!:::::::::::::::::*       P      Y     T   H   H  I  A   A  **
+ **    *::::::::!!::::::::::::::::*!       P      Y     T   H   H III A   A  **
+ **      *::::::!!::::::::::::::* !!                                         **
+ **      !! *:::!!:::::::::::*    !!       This is PYTHIA version 6.425      **
+ **      !!     !* -><- *         !!       Last date of change: 23 Mar 2011  **
+ **      !!     !!                !!                                         **
+ **      !!     !!                !!       Now is  0 Jan 2000 at  0:00:00    **
+ **      !!                       !!                                         **
+ **      !!        lh             !!       Disclaimer: this program comes    **
+ **      !!                       !!       without any guarantees. Beware    **
+ **      !!                 hh    !!       of errors and use common sense    **
+ **      !!    ll                 !!       when interpreting results.        **
+ **      !!                       !!                                         **
+ **      !!                                Copyright T. Sjostrand (2011)     **
+ **                                                                          **
+ ** An archive of program versions and documentation is found on the web:    **
+ ** http://www.thep.lu.se/~torbjorn/Pythia.html                              **
+ **                                                                          **
+ ** When you cite this program, the official reference is to the 6.4 manual: **
+ ** T. Sjostrand, S. Mrenna and P. Skands, JHEP05 (2006) 026                 **
+ ** (LU TP 06-13, FERMILAB-PUB-06-052-CD-T) [hep-ph/0603175].                **
+ **                                                                          **
+ ** Also remember that the program, to a large extent, represents original   **
+ ** physics research. Other publications of special relevance to your        **
+ ** studies may therefore deserve separate mention.                          **
+ **                                                                          **
+ ** Main author: Torbjorn Sjostrand; Department of Theoretical Physics,      **
+ **   Lund University, Solvegatan 14A, S-223 62 Lund, Sweden;                **
+ **   phone: + 46 - 46 - 222 48 16; e-mail: torbjorn@thep.lu.se              **
+ ** Author: Stephen Mrenna; Computing Division, GDS Group,                   **
+ **   Fermi National Accelerator Laboratory, MS 234, Batavia, IL 60510, USA; **
+ **   phone: + 1 - 630 - 840 - 2556; e-mail: mrenna@fnal.gov                 **
+ ** Author: Peter Skands; CERN/PH-TH, CH-1211 Geneva, Switzerland            **
+ **   phone: + 41 - 22 - 767 24 47; e-mail: peter.skands@cern.ch             **
+ **                                                                          **
+ **                                                                          **
+ ******************************************************************************
+ ******************************************************************************
+1****************** PYINIT: initialization of PYTHIA routines *****************
+
+ ==============================================================================
+ I                                                                            I
+ I             PYTHIA will be initialized for a p+ on p+ collider             I
+ I                  at   5020.000 GeV center-of-mass energy                   I
+ I                                                                            I
+ ==============================================================================
+
+ ******** PYMAXI: summary of differential cross-section maximum search ********
+
+           ==========================================================
+           I                                      I                 I
+           I  ISUB  Subprocess name               I  Maximum value  I
+           I                                      I                 I
+           ==========================================================
+           I                                      I                 I
+           I   11   f + f' -> f + f' (QCD)        I    1.7539D+08   I
+           I   12   f + fbar -> f' + fbar'        I    2.2685D+06   I
+           I   13   f + fbar -> g + g             I    1.2689D+06   I
+           I   28   f + g -> f + g                I    3.4176D+08   I
+           I   53   g + g -> f + fbar             I    5.7871D+06   I
+           I   68   g + g -> g + g                I    7.4565D+07   I
+           I                                      I                 I
+           ==========================================================
+
+ ********************** PYINIT: initialization completed **********************
+
+ WARNING in getpdfxint: need to extrapolate:    32278.392952049937        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32278.392952049933        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32278.392952049937        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32278.392952049933        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32345.387386925562        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32345.387386925562        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32345.387386925562        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32345.387386925562        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    32631.997295890924        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    42637.943983904559        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    42637.943983904559        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    42637.943983904559        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    42637.943983904559        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    41754.719520447536        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    41754.719520447536        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    41754.719520447536        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    41754.719520447536        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    41754.719520447536        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    41754.719520447536        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    41754.719520447536        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    41754.719520447536        31078.181295996954     
+ WARNING in getpdfxint: need to extrapolate:    41754.719520447536        31078.181295996954     
+ WARNING in getxsecint: need to extrapolate:    41754.719520447536        31078.181295996954     
